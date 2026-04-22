@@ -1,0 +1,29 @@
+.features-section {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  text-align: center;
+  .box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 50%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    p {
+      color: #555;
+    }
+    .img {
+      font-size: 40px;
+      padding: 8px;
+      border-radius: 50%;
+    }
+    .rounded-first-img {
+      background-color: #e0f7fa;
+      color: #00796b;
+    }
+    .rounded-second-img {
+      background-color: #fce4ec;
+      color: #c2185b;
+    }
+  }
+}
