@@ -1,0 +1,40 @@
+<main>
+  <div class="titles-container">
+    <app-title-csv-json-converter
+      [firstTitleConverter]="'CSV'"
+      [secondTitleConverter]="'JSON'"
+      [isActive]="currentConverterMode === converterMode.CSV_TO_JSON"
+      (click)="setMode(converterMode.CSV_TO_JSON)"
+    />
+    <app-title-csv-json-converter
+      [firstTitleConverter]="'JSON'"
+      [secondTitleConverter]="'CSV'"
+      [isActive]="currentConverterMode === converterMode.JSON_TO_CSV"
+      (click)="setMode(converterMode.JSON_TO_CSV)"
+    />
+  </div>
+  <div class="in-out-container">
+    <div class="in-container">
+      <h3>
+        {{ currentConverterMode === converterMode.CSV_TO_JSON ? 'Entrada CSV' : 'Entrada JSON' }}
+      </h3>
+      <textarea [(ngModel)]="inputData" placeholder="{{ placeholderInput }}"></textarea>
+      @if (isLoading()) {
+        <button class="btn" (click)="convert()">Carregando...</button>
+      } @else {
+        <button class="btn" (click)="convert()">
+          <span class="material-symbols-outlined">swap_horiz</span>
+          {{
+            currentConverterMode === converterMode.CSV_TO_JSON
+              ? 'Converter para JSON'
+              : 'Converter para CSV'
+          }}
+        </button>
+      }
+    </div>
+    <div class="out-container">
+      <h3>{{ currentConverterMode === converterMode.CSV_TO_JSON ? 'Saida JSON' : 'Saida CSV' }}</h3>
+      <textarea placeholder="{{ placeholderOutput }}" [(ngModel)]="outputData"></textarea>
+    </div>
+  </div>
+</main>
